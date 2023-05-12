@@ -1,0 +1,10 @@
+library management system 
+allows libararians to manage the books in the library
+- add new books 
+- manage lending
+- allow users to seach for books and check avalaibility 
+
+
+databse will hav tables
+books table- stores info about each book 
+users table - 

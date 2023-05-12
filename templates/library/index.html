@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>library admin</h1>
+<link rel="stylesheet" type="text/css" href="style.css">
+
+
+<title>Library Admin Dashboard</title>
+	
+</head>
+<body>
+	<header>
+		
+		<nav>
+			<ul>
+				<li><a href="">Home</a></li>
+				<li><a href="">Books</a></li>
+				<li><a href="">Borrowers</a></li>
+				<li><a href="">Loans</a></li>
+				<li><a href="">Reports</a></li>
+				<li><a href="">Settings</a></li>
+				<li><a href="">Logout</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main>
+		<section id="overview">
+			<h2>Overview</h2>
+			<div class="card">
+				<h3>Total Books</h3>
+				<p>500</p>
+			</div>
+			<div class="card">
+				<h3>Total Borrowers</h3>
+				<p>1000</p>
+			</div>
+			<div class="card">
+				<h3>Total Loans</h3>
+				<p>1500</p>
+			</div>
+		</section>
+
+		<section id="recent-activity">
+			<h2>Recent Activity</h2>
+			<table>
+				<thead>
+					<tr>
+						<th>Book Title</th>
+						<th>Borrower Name</th>
+						<th>Date Borrowed</th>
+						<th>Date Returned</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>lord of the rings</td>
+						<td>John</td>
+						<td>2023-05-05</td>
+						<td>2023-05-12</td>
+					</tr>
+					<tr>
+						<td>dsfsdfGalaxy</td>
+						<td>bob</td>
+						<td>2023-05-07</td>
+						<td>2023-05-14</td>
+					</tr>
+					<tr>
+						<td>The Great Gatsby</td>
+						<td>rae</td>
+						<td>2023-05-09</td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+	</main>
+</body>
+<a href="/users/new">Sign up</a>
+<a href="/sessions/new">Log in</a>
+
+
+{% endblock %}
