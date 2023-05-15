@@ -29,23 +29,25 @@
 			<h2>Overview</h2>
 			<div class="card">
 				<h3>Total Books</h3>
-				<p>500</p>
+				<p>?</p>
 			</div>
 			<div class="card">
 				<h3>Total Borrowers</h3>
-				<p>1000</p>
+				<p>?</p>
 			</div>
 			<div class="card">
 				<h3>Total Loans</h3>
-				<p>1500</p>
+				<p>?</p>
 			</div>
 		</section>
 
 		<section id="recent-activity">
 			<h2>Recent Activity</h2>
+			
 			<table>
 				<thead>
 					<tr>
+						<th>Book ID</th>
 						<th>Book Title</th>
 						<th>Borrower Name</th>
 						<th>Date Borrowed</th>
@@ -53,26 +55,21 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>lord of the rings</td>
-						<td>John</td>
-						<td>2023-05-05</td>
-						<td>2023-05-12</td>
-					</tr>
-					<tr>
-						<td>dsfsdfGalaxy</td>
-						<td>bob</td>
-						<td>2023-05-07</td>
-						<td>2023-05-14</td>
-					</tr>
-					<tr>
-						<td>The Great Gatsby</td>
-						<td>rae</td>
-						<td>2023-05-09</td>
-						<td></td>
-					</tr>
-				</tbody>
+					<section class="borrowed_books">
+						{for borrowed_book in borrowed_books: %}
+					<section class="borrowed_book">
+						<tr>
+							<td><a href="/borrowed_books/{{ borrowed_book['book_id']}}">{{ borrowed_book[book_id] }}</a></td>
+							<td><a href="/borrowed_books/{{ borrowed_book['book_title']}}">{{ borrowed_book[book_title] }}</a></td>
+							<td><a href="/borrowed_books/{{ borrowed_book['borrow_date']}}">{{ borrowed_book[borrow_date] }}</a></td>
+							<td><a href="/borrowed_books/{{ borrowed_book['due_date']}}">{{ borrowed_book[due_date] }}</a></td>
+							<td>2023-05-12</td>
+						</tr>
+					</section>
+				</section>
+			</tbody>
 			</table>
+			
 		</section>
 	</main>
 </body>

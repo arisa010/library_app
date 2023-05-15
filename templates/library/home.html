@@ -15,6 +15,22 @@
                 </ul>
                 </nav>
             </header>
+            <h2>Featured Books</h2>
+        <section class="books">
+            {% for book in books: %}
+            <section class="book">
+                
+                <a href="/books/{{ book['id']}}">{{ book[title] }}</a></li>
+                <section class="controls">
+                <form action="/books/{{ book['id']}}/check" method="POST">
+                    <button>read more</button>
+			    </section>
+            </section>
+            <img src="{{ food['image_url'] }}" alt="">
+        </section>
+  {% endfor %}
+		
+		
 
 
         </body>
