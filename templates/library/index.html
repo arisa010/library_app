@@ -56,15 +56,16 @@
 				</thead>
 				<tbody>
 					<section class="borrowed_books">
-						{for borrowed_book in borrowed_books: %}
-					<section class="borrowed_book">
+						{for book in borrowed_books: %}
+					<section class="book">
 						<tr>
-							<td><a href="/borrowed_books/{{ borrowed_book['book_id']}}">{{ borrowed_book[book_id] }}</a></td>
-							<td><a href="/borrowed_books/{{ borrowed_book['book_title']}}">{{ borrowed_book[book_title] }}</a></td>
-							<td><a href="/borrowed_books/{{ borrowed_book['borrow_date']}}">{{ borrowed_book[borrow_date] }}</a></td>
-							<td><a href="/borrowed_books/{{ borrowed_book['due_date']}}">{{ borrowed_book[due_date] }}</a></td>
-							<td>2023-05-12</td>
+							<td><a href="/borrowed_books/{{ book['book_id']}}">{{ book['book_id'] }}</a></td>
+							<td><a href="/borrowed_books/{{ book['book_title']}}">{{ book['book_title'] }}</a></td>
+							<td><a href="/borrowed_books/{{ book['reguser_id']}}">{{ book['reguser_id'] }}</a></td>
+							<td><a href="/borrowed_books/{{ book['borrow_date']}}">{{ book['borrow_date'] }}</a></td>
+							<td><a href="/borrowed_books/{{ book['due_date']}}">{{ book['due_date'] }}</a></td>
 						</tr>
+						{% endfor %}
 					</section>
 				</section>
 			</tbody>

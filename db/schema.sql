@@ -8,7 +8,7 @@ CREATE TABLE books (
   author TEXT,
   publication_year INTEGER,
   is_available BOOLEAN,
-  description TEXT,
+  description TEXT
 );
 
 INSERT INTO books(title, image_url, author, publication_year, is_available, description)
@@ -20,18 +20,22 @@ VALUES
   ('Brave New World', 'https://upload.wikimedia.org/wikipedia/en/6/62/BraveNewWorld_FirstEdition.jpg', 'Aldous Huxley', 1932, TRUE, 'A dystopian novel set in a future world where genetic engineering, conditioning, and drugs are used to maintain social stability.'),
   ('Animal Farm', 'https://wp.penguin.co.uk/wp-content/uploads/2021/08/Book13.jpg', 'George Orwell', 1945, TRUE, 'An allegorical novella that tells the story of a group of farm animals who rebel against their human farmer, hoping to create a society where the animals can be equal, free, and happy.'),
   ('Slaughterhouse-Five', 'https://s26162.pcdn.co/wp-content/uploads/2019/03/110268.jpg', 'Kurt Vonnegut', 1969, TRUE, 'A satirical novel that tells the story of Billy Pilgrim, a World War II veteran who has become "unstuck in time" and experiences his life out of chronological order.'),
-  ('Fahrenheit 451', 'https://www.slate.com/content/dam/slideshows/arts/brow_beat/2012/06/06/ray-bradburys-fahrenheit-451-book-covers-through-time/jcr%3acontent/slideshow/0/images%252Fslides%252F1953-1st-edition.jpg', 'Ray Bradbury', 1953, TRUE, 'A dystopian novel set in a future American society where books are outlawed and "firemen" burn any that are found.'),
+  ('Fahrenheit 451', 'https://www.slate.com/content/dam/slideshows/arts/brow_beat/2012/06/06/ray-bradburys-fahrenheit-451-book-covers-through-time/jcr%3acontent/slideshow/0/images%252Fslides%252F1953-1st-edition.jpg', 'Ray Bradbury', 1953, FALSE, 'A dystopian novel set in a future American society where books are outlawed and "firemen" burn any that are found.');
   
 
 CREATE TABLE borrowed_books (
   id INTEGER PRIMARY KEY,
   book_id INTEGER,
-  book_title TEXT,
   reguser_id INTEGER,
   borrow_date DATE,
   due_date DATE
- 
+  book_title TEXT,
 ); 
+
+INSERT INTO borrowed_books(book_id, reguser_id, borrow_date, due_date, book_title)
+VALUES
+  ('12a12', 'user1', 19-12-2022, 31-12-2022,'a brave new world');
+
 
 ALTER TABLE borrowed_books
 DROP COLUMN due_date;

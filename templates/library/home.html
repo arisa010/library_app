@@ -8,30 +8,27 @@
 			<h1>Welcome to the Library</h1>
 			<nav>
 				<ul>
-					<li><a href="">Home</a></li>
+					<li><a href="/library/index">Home</a></li>
 					<li><a href="">Catalog</a></li>
 					<li><a href="/users/new">Sign up</a></li>
                     <li><a href="/sessions/new">Log in</a></li>
                 </ul>
-                </nav>
-            </header>
-            <h2>Featured Books</h2>
+            </nav>
+        </header>
+        <h2>Featured Books</h2>
         <section class="books">
             {% for book in books: %}
             <section class="book">
-                
-                <a href="/books/{{ book['id']}}">{{ book[title] }}</a></li>
+                <h3>{{ book['title'] }}</h3>
+                <a href="/books/{{ book['id']}}">{{ book['title'] }}</a></li>
                 <section class="controls">
                 <form action="/books/{{ book['id']}}/check" method="POST">
                     <button>read more</button>
-			    </section>
-            </section>
-            <img src="{{ food['image_url'] }}" alt="">
+                </form>
+			</section>
         </section>
-  {% endfor %}
-		
-		
-
-
-        </body>
+        <img src="{{ food['image_url'] }}" alt=""> 
+        {% endfor %}
+    </section>
+ </body>
     

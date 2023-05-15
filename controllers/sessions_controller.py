@@ -3,12 +3,15 @@ from models.user import find_user_by_email
 import bcrypt 
 
 def new():
+    print("rendering the new function")
     return render_template('sessions/new.html')
 
 def create():
     email = request.form.get('email')
     password = request.form.get('password')
+    print(f"email={email}")
     user = find_user_by_email(email)
+    print(f"user={user}")
     if user == None:
         return redirect('/sessions/new')
 

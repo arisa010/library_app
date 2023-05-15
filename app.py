@@ -11,7 +11,7 @@ app.config['SECRET_KEY'] = SECRET_KEY
 
 app.register_blueprint(library_routes, url_prefix='/library' )
 app.register_blueprint(users_routes, url_prefix='/users')
-app.register_blueprint(users_routes, name="some_unique_name", url_prefix='/sessions')
+app.register_blueprint(sessions_routes, url_prefix='/sessions')
 
 @app.route('/')
 def index():
