@@ -1,3 +1,6 @@
+{% extends 'base.html' %}
+
+{% block content %}
 <head>
 	<title>Library Homepage</title>
 	<link rel="stylesheet" type="text/css" href="static/css/home_style.css">
@@ -5,30 +8,58 @@
 <body>
 	<body class="container">
 		<header>
-			<h1>Welcome to the Library</h1>
+           
+            <h3>Welcome to the library {{ current_user['first_name'] }}</h3>
+			
 			<nav>
 				<ul>
 					<li><a href="/library/index">Home</a></li>
 					<li><a href="">Catalog</a></li>
 					<li><a href="/users/new">Sign up</a></li>
                     <li><a href="/sessions/new">Log in</a></li>
+                    <li>
+                        <form action="/sessions/delete" method="POST">
+                        <button>Log out</button>
+                        </form>
+                    </li>
                 </ul>
             </nav>
         </header>
         <h2>Featured Books</h2>
+        <a href="/library/new">Add new book</a>
         <section class="books">
             {% for book in books: %}
             <section class="book">
                 <h3>{{ book['title'] }}</h3>
-                <a href="/books/{{ book['id']}}">{{ book['title'] }}</a></li>
+                <a href="/library/{{ book['id']}}">{{ 'read more' }}</a></li>
                 <section class="controls">
-                <form action="/books/{{ book['id']}}/check" method="POST">
-                    <button>read more</button>
+                    <a href="/library/{{ book['id'] }}/edit">Edit</a>
+
+                    <form action="/library/{{ book['id'] }}/delete" method="POST">
+                      <button>Delete</button>
+                    </form>
                 </form>
+                <img src="{{ book['image_url'] }}" alt=""> 
+                <section class="comments">
+                    <h4>Comments:</h4>
+                    {% for comment in book['comments'] %}
+                      <div class="comment">
+                        <p>{{ comment['text'] }}</p>
+                        <p>By: {{ comment['user'] }}</p>
+                      </div>
+                    {% endfor %}
+                    <!-- Add comment form -->
+                    <form action="/library/{{ book['id'] }}/comments" method="POST">
+                      <input type="text" name="comment" placeholder="Add a comment">
+                      <button type="submit">Submit</button>
+                    </form>
+                  </section>
 			</section>
+            
         </section>
-        <img src="{{ food['image_url'] }}" alt=""> 
+        
         {% endfor %}
     </section>
  </body>
-    
+
+ {% endblock %}

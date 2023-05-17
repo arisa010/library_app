@@ -2,7 +2,7 @@ CREATE DATABASE library_system_db;
 \c library_system_db
 
 CREATE TABLE books (
-  id INTEGER PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   title TEXT,
   image_url TEXT,
   author TEXT,
@@ -14,7 +14,7 @@ CREATE TABLE books (
 INSERT INTO books(title, image_url, author, publication_year, is_available, description)
 VALUES
   ('To Kill a Mockingbird', 'https://s2982.pcdn.co/wp-content/uploads/2015/07/To-Kill-a-Mockingbird-1st-ed.gif', 'Harper Lee', 1960, TRUE, 'A Pulitzer Prize-winning novel about racial injustice in a small Alabama town.'),
-  ('1984', 'https://i0.wp.com/www.printmag.com/wp-content/uploads/2017/01/2a34d8_a6741e88335241308890543d203ad89dmv2.jpg?resize=500%2C815&ssl=1', 'George Orwell', 1949, TRUE, 'A dystopian novel set in a totalitarian society where the government has complete control over every aspect of citizens\' lives.'),
+  ('1984', 'https://i0.wp.com/www.printmag.com/wp-content/uploads/2017/01/2a34d8_a6741e88335241308890543d203ad89dmv2.jpg?resize=500%2C815&ssl=1', 'George Orwell', 1949, TRUE, 'A dystopian novel set in a totalitarian society where the government has complete control over every aspect of citizens\ lives.'),
   ('The Catcher in the Rye', 'https://i0.wp.com/americanwritersmuseum.org/wp-content/uploads/2016/01/Catcher-in-the-Rye.jpg?w=223&ssl=1', 'J.D. Salinger', 1951, TRUE, 'A controversial novel about a teenage boy who is disillusioned with the adult world and struggles with his own identity.'),
   ('One Hundred Years of Solitude', 'https://s26162.pcdn.co/wp-content/uploads/2018/02/100_Years_First_Ed_Hi_Res-768x1153.jpg', 'Gabriel Garcia Marquez', 1967, TRUE, 'A novel that tells the multi-generational story of the Buendía family in the fictional town of Macondo.'),
   ('Brave New World', 'https://upload.wikimedia.org/wikipedia/en/6/62/BraveNewWorld_FirstEdition.jpg', 'Aldous Huxley', 1932, TRUE, 'A dystopian novel set in a future world where genetic engineering, conditioning, and drugs are used to maintain social stability.'),
@@ -24,17 +24,19 @@ VALUES
   
 
 CREATE TABLE borrowed_books (
-  id INTEGER PRIMARY KEY,
-  book_id INTEGER,
+  id SERIAL PRIMARY KEY,
   reguser_id INTEGER,
   borrow_date DATE,
-  due_date DATE
-  book_title TEXT,
+  due_date DATE,
+  book_title TEXT
 ); 
 
-INSERT INTO borrowed_books(book_id, reguser_id, borrow_date, due_date, book_title)
+INSERT INTO borrowed_books(reguser_id, borrow_date, due_date, book_title)
 VALUES
-  ('12a12', 'user1', 19-12-2022, 31-12-2022,'a brave new world');
+  (123, '2023-05-03', '2023-06-03','a brave new world'),
+  (344, '2023-05-02', '2023-06-02','Fahrenheit 451'),
+  (233, '2023-05-01', '2023-06-01','One Hundred Years of Solitude'),
+  (109, '2023-04-21', '2023-05-21','Lord of The Rings');
 
 
 ALTER TABLE borrowed_books
@@ -50,4 +52,9 @@ CREATE TABLE users(
 
 ALTER TABLE  users ADD COLUMN password_digest TEXT;
 
+CREATE TABLE comments (
+  id SERIAL PRIMARY KEY,
+  book_id INTEGER REFERENCES books (id),
+  comment TEXT,
+);
 

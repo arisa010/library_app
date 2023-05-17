@@ -14,5 +14,5 @@ app.register_blueprint(users_routes, url_prefix='/users')
 app.register_blueprint(sessions_routes, url_prefix='/sessions')
 
 @app.route('/')
-def index():
+def home():
     return redirect('/library')

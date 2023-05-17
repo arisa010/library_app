@@ -56,7 +56,7 @@
 				</thead>
 				<tbody>
 					<section class="borrowed_books">
-						{for book in borrowed_books: %}
+						{% for book in borrowed_books: %}
 					<section class="book">
 						<tr>
 							<td><a href="/borrowed_books/{{ book['book_id']}}">{{ book['book_id'] }}</a></td>
