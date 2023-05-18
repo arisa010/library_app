@@ -20,11 +20,11 @@ def delete_book(id):
   sql('DELETE FROM books WHERE id=%s RETURNING *', [id])
 
 def comment_under_book(book, comment):
-  sql('INSERT INTO comments (book_id, comment) VALUES (%s, %s) RETURNING *', [book['id'], comment])
+  sql('INSERT INTO comments(book_id, comment) VALUES (%s, %s) RETURNING *', [book['id'], comment])
 
 def get_comments(book_id):
-    comments = sql("SELECT comment FROM comments WHERE book_id = %s", [book_id])
+  comments = sql("SELECT comment FROM comments WHERE book_id = %s", [book_id])
     
-    return comments
+  return comments
 
 

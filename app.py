@@ -4,6 +4,7 @@ from routes.library_routes import library_routes
 from routes.users_routes import users_routes
 from routes.sessions_routes import sessions_routes
 
+print(f"anything")
 SECRET_KEY = os.environ.get("FLASK_SECRET_KEY", "pretend key for testing only")
 
 app = Flask(__name__)
