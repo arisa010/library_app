@@ -55,6 +55,6 @@ ALTER TABLE  users ADD COLUMN password_digest TEXT;
 CREATE TABLE comments (
   id SERIAL PRIMARY KEY,
   book_id INTEGER REFERENCES books (id),
-  comment TEXT,
+  comment TEXT
 );
 

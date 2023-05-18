@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>{{ book['title'] }}</h2>
+  <img src="{{ book['image_url'] }}" alt="">
+  <p>{{ book['description'] }}</p>
+
+  <h4>Comments:</h4>
+  {% if comments %}
+    {% for comment in comments %}
+      <div class="comment">
+        <p>{{ comment['comment'] }}</p>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p>no comments</p>
+  {% endif %}
+  <
+{% endblock %}
+ 

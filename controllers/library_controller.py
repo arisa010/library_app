@@ -1,5 +1,5 @@
 from flask import render_template, request, redirect, session
-from models.library import all_books,  get_book, create_book, update_book, delete_book, comment_under_book
+from models.library import all_books,  get_book, create_book, update_book, delete_book, comment_under_book, get_comments
 from services.session_info import current_user
 
 def home():
@@ -22,11 +22,15 @@ def edit(id):
   book = get_book(id)
   return render_template('library/edit.html', book=book)
 
+# def update_book(id, title, image_url):
+
 def update(id):
   title = request.form.get('title')
   image_url = request.form.get('image_url')
   update_book(id, title, image_url)
   return redirect('/')
+
+
 
 def delete(id):
   delete_book(id)
@@ -37,3 +41,9 @@ def add_comment(id):
   book = get_book(id)
   comment_under_book(book, comment)
   return redirect('/')
+
+def read_more(id):
+    book = get_book(id)
+    comments = get_comments(id)
+    # print(f"comments={comments}")
+    return render_template('library/book.html', book=book, comments=comments)
