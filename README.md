@@ -2,7 +2,7 @@
 
 The briefest description of my cool project and why you should all use it.
 
-## :computer: [Click here](#) to see my live project!
+## :computer: [Click here](#https://librar.onrender.com/library) to see my live project!
 
 ## :page_facing_up: About
 The library app has the following functionalities:
@@ -15,7 +15,8 @@ The library app has the following functionalities:
 ```zsh
 $ 
 ```
-- Add in-app screenshots.
+- home page
+
 
 ## :pencil2: Planning & Problem Solving
 - Defined the requirements and features of the library app
