@@ -2,7 +2,7 @@
 
 The briefest description of my cool project and why you should all use it.
 
-## :computer: [Click here](#https://librar.onrender.com/library) to see my live project!
+## :computer: [Click here](https://librar.onrender.com/library) to see my live project!
 
 ## :page_facing_up: About
 The library app has the following functionalities:
